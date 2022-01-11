@@ -1,5 +1,5 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/dtumlops-335110/testing', '.']
+  args: ['build', '-t', 'gcr.io/evident-lock-337908/testing', '.']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/dtumlops-335110/testing']
+  args: ['push', 'gcr.io/evident-lock-337908/testing']
