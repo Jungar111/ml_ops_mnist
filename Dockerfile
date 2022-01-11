@@ -7,5 +7,4 @@ RUN apt update && \
 
 COPY . /src
 COPY . /Makefile
-RUN make data
-RUN make train
+CMD make train
