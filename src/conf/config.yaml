@@ -1,0 +1,41 @@
+paths:
+  image_train: data/processed/train_images.pt
+  label_train: data/processed/train_labels.pt
+  image_test: data/processed/test_images.pt
+  label_test: data/processed/test_labels.pt
+
+image:
+  height: 28
+  width: 28
+  channels: 1
+
+model:
+  lr: 1e-4
+  batch_size: 32
+  dropout: 0.2
+  classes: 2
+
+conv_layers:
+  - conv1:
+    out_channels: 16
+    kernel_size: 3
+    stride: 1
+    padding: 1
+    
+  - conv2:
+    out_channels: 32
+    kernel_size: 3
+    stride: 1
+    padding: 1
+  
+  - conv2:
+    out_channels: 64
+    kernel_size: 3
+    stride: 1
+    padding: 1
+
+
+maxpool:
+  kernel_size: 3
+  stride: 1
+  padding: 1

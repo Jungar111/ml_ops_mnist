@@ -2,6 +2,7 @@ import click
 import logging
 from pathlib import Path
 from dotenv import find_dotenv, load_dotenv
+from hydra.core.config_store import ConfigStore
 
 import torch
 from model import MyAwesomeModel
@@ -9,9 +10,17 @@ from torch import nn
 from torch import optim
 from src.data.load_dataset import load_data
 import matplotlib.pyplot as plt
+import hydra
+from src.config import MNISTConfig
 
-def main():
-    model = MyAwesomeModel()
+
+cs = ConfigStore().instance()
+cs.store(name='mnist_config', node = MNISTConfig)
+
+
+@hydra.main(config_path='../conf', config_name='config')
+def main(cfg: MNISTConfig):
+    model = MyAwesomeModel(cfg)
     trainloader, testloader = load_data()
     training_loss = []
     validation_loss = []
@@ -64,6 +73,8 @@ def main():
     plt.xlabel("Epoch")
     plt.ylabel("Accuracy")
     plt.savefig("reports/figures/accuracy.png")
+
+    hydra.core.GlobalHydra.instance().clear()
 
             
 

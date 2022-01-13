@@ -1,5 +1,12 @@
 import torch
 import numpy as np
+import hydra
+from src.config import MNISTConfig
+from hydra.core.config_store import ConfigStore
+
+
+cs = ConfigStore().instance()
+cs.store(name='mnist_config', node = MNISTConfig)
 
 class MNISTDataset(torch.utils.data.Dataset):
     def __init__(self, X, y):
@@ -20,16 +27,19 @@ def concat_multiple(sets):
     
     return new
 
-def load_data():
-    bs = 32
+@hydra.main(config_path='../conf', config_name='config')
+def load_data(cfg: MNISTConfig):
+    bs = cfg.model.batch_size
 
-    X_train = torch.load('data/processed/train_images.pt')
-    y_train = torch.load('data/processed/train_labels.pt')
+    X_train = torch.load(cfg.paths.image_train)
+    y_train = torch.load(cfg.paths.label_train)
 
-    X_test = torch.load('data/processed/test_images.pt')
-    y_test = torch.load('data/processed/test_labels.pt')
+    X_test = torch.load(cfg.paths.image_test)
+    y_test = torch.load(cfg.paths.image_test)
 
     trainloader = torch.utils.data.DataLoader(MNISTDataset(X_train, y_train), shuffle=True, batch_size=bs)
     testloader = torch.utils.data.DataLoader(MNISTDataset(X_test, y_test), shuffle=True, batch_size=bs)
+    
+    hydra._internal.hydra.GlobalHydra().clear() 
 
     return trainloader, testloader
