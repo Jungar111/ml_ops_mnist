@@ -10,4 +10,5 @@ WORKDIR /ml_ops_mnist
 RUN make requirements
 COPY data/ data/
 RUN make data
-RUN make train
+RUN pwd
+#RUN make train

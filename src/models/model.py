@@ -2,7 +2,7 @@ from re import L
 from torch import nn
 import torch.nn.functional as F
 from hydra.core.config_store import ConfigStore
-from src.config import MNISTConfig
+from config import MNISTConfig
 import torch
 import pytorch_lightning as pl
 import torchmetrics
