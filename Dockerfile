@@ -7,6 +7,7 @@ RUN apt update && \
 
 RUN git clone https://jungar111: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@github.com/jungar111/ml_ops_mnist.git
 WORKDIR /ml_ops_mnist
+RUN git pull origin main
 RUN make requirements
 COPY data/ data/
 RUN make data
