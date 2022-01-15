@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from typing import List
-
+from hydra.core.config_store import ConfigStore
 
 @dataclass
 class Paths:
@@ -41,3 +41,9 @@ class MNISTConfig:
     maxpool: MaxPool
     paths: Paths
 
+def register_configs() -> None:
+    cs = ConfigStore.instance()
+    cs.store(
+        name="mnist_config",
+        node=MNISTConfig
+    )

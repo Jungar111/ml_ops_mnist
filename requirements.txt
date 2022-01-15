@@ -13,3 +13,5 @@ torch
 numpy
 torchsummary
 hydra-core
+pytorch-lightning
+wandb

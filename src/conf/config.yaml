@@ -1,8 +1,8 @@
 paths:
-  image_train: data/processed/train_images.pt
-  label_train: data/processed/train_labels.pt
-  image_test: data/processed/test_images.pt
-  label_test: data/processed/test_labels.pt
+  image_train: ../../../data/processed/train_images.pt
+  label_train: ../../../data/processed/train_labels.pt
+  image_test: ../../../data/processed/test_images.pt
+  label_test: ../../../data/processed/test_labels.pt
 
 image:
   height: 28
@@ -13,7 +13,7 @@ model:
   lr: 1e-4
   batch_size: 32
   dropout: 0.2
-  classes: 2
+  classes: 10
 
 conv_layers:
   - conv1:
