@@ -6,9 +6,8 @@ RUN apt update && \
    apt clean && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://jungar111: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@github.com/jungar111/ml_ops_mnist.git
-RUN gcloud auth activate-service-account --key-file=evident-lock-337908-b91a9598680a.json
 WORKDIR /ml_ops_mnist
 RUN make requirements
-RUN dvc pull
+COPY data/ data/
 RUN make data
 RUN make train
