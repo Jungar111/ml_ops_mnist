@@ -27,8 +27,8 @@ def main(cfg: MNISTConfig):
     secrets = secretmanager.SecretManagerServiceClient()
     WANDB_KEY = secrets.access_secret_version(request={"name": "projects/"+PROJECT_ID+"/secrets/wandb_api_key/versions/1"}).payload.data.decode("utf-8")
     os.environ['WANDB_API_KEY'] = WANDB_KEY
-
-    model = MyAwesomeModel(cfg)
+    print(WANDB_KEY)
+    """model = MyAwesomeModel(cfg)
     
     trainloader, testloader = load_data(cfg, cfg.model.batch_size)
 
@@ -36,7 +36,7 @@ def main(cfg: MNISTConfig):
     
     trainer = pl.Trainer(logger = wandb_logger, gpus=0, max_epochs=2, log_every_n_steps=100)
     trainer.fit(model, trainloader, testloader)
-    trainer.save_checkpoint()
+    trainer.save_checkpoint()"""
 
     
 
