@@ -14,12 +14,20 @@ import hydra
 from src.config import MNISTConfig, register_configs
 import pytorch_lightning as pl
 from pytorch_lightning.loggers import WandbLogger
+import os
+
+from google.cloud import secretmanager
 
 register_configs()
 
 @hydra.main(config_path='../conf', config_name='config')
 def main(cfg: MNISTConfig):
     
+    PROJECT_ID = 'evident-lock-337908'
+    secrets = secretmanager.SecretManagerServiceClient()
+    WANDB_KEY = secrets.access_secret_version(request={"name": "projects/"+PROJECT_ID+"/secrets/wandb_api_key/versions/1"}).payload.data.decode("utf-8")
+    os.environ['WANDB_API_KEY'] = WANDB_KEY
+
     model = MyAwesomeModel(cfg)
     
     trainloader, testloader = load_data(cfg, cfg.model.batch_size)

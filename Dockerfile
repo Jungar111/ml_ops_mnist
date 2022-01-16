@@ -9,7 +9,8 @@ RUN apt update && \
 RUN apt update
 RUN apt-get -y install python3-venv
 RUN pip3 install virtualenv
-RUN git clone https://jungar111:${GITHUB_KEY}@github.com/jungar111/ml_ops_mnist.git
+RUN git clone https://jungar111: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@github.com/jungar111/ml_ops_mnist.git
+ENV WANDB_API_KEY = 148bac8b0889bea283c422827283b248593b70d0
 WORKDIR /ml_ops_mnist
 ENV VIRUTALENV=env
 RUN python3 -m venv ${VIRUTALENV}
