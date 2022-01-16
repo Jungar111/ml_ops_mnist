@@ -16,3 +16,4 @@ hydra-core
 pytorch-lightning
 wandb
 dvc[gs]
+setuptools==59.5.0
