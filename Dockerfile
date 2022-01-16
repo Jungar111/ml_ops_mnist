@@ -9,7 +9,7 @@ RUN apt update && \
 RUN apt update
 RUN apt-get -y install python3-venv
 RUN pip3 install virtualenv
-RUN git clone https://jungar111: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@github.com/jungar111/ml_ops_mnist.git
+RUN git clone https://jungar111:${GITHUB_KEY}@github.com/jungar111/ml_ops_mnist.git
 WORKDIR /ml_ops_mnist
 ENV VIRUTALENV=env
 RUN python3 -m venv ${VIRUTALENV}
@@ -17,4 +17,4 @@ ENV PATH="${VIRUTALENV}/bin:$PATH"
 RUN make requirements
 COPY data/ data/
 RUN make data
-RUN make train
+CMD ["make", "train"]

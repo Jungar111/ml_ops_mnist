@@ -5,6 +5,8 @@ __pycache__/
 # C extensions
 *.so
 
+gh_key.txt
+
 # Distribution / packaging
 .Python
 env/
