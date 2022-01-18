@@ -26,6 +26,9 @@ Project Organization
     │
     ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
     │
+    ├── torchserve         <- Files associated with the torchserve exercise
+    ├── model_store        <- Model associated with the torchserve exercise
+    ├── tests              <- Tests associated with CI/CD on Github
     ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
     │   └── figures        <- Generated graphics and figures to be used in reporting
     │
