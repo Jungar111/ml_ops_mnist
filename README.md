@@ -1,7 +1,8 @@
 MNIST
 ==============================
 
-A short description of the project.
+Personal repo for the course 02476 - Machine Learning Operations
+Asger Sturis Tang - s184305
 
 Project Organization
 ------------
