@@ -1,8 +1,0 @@
-https://github.com/Jungar111/ml_ops_mnist
-
-availableSecrets:
-  secretManager:
-  - versionName: projects/evident-lock-337908/secrets/github_key/versions/1
-    env: 'GITHUB_KEY'
-  - versionName: projects/evident-lock-337908/secrets/wandb_api_key/versions/1
-    env: 'WANDB_KEY'
