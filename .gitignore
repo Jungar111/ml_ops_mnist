@@ -6,7 +6,7 @@ __pycache__/
 *.so
 
 gh_key.txt
-
+hand_in.txt
 # Distribution / packaging
 .Python
 env/
